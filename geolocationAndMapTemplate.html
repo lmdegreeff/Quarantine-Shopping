@@ -26,17 +26,15 @@
       // failed.", it means you probably did not give permission for the browser to
       // locate you.
       var map, infoWindow;
-      var latitude = -42.089
-      var longitude = 71.324
-      function initMap(latitude, longitude) {
+      function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: latitude, lng: longitude},
-          zoom: 10
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 12
         });
         infoWindow = new google.maps.InfoWindow;
 
         // Try HTML5 geolocation.
-      /*  if (navigator.geolocation) {
+        if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {
               lat: position.coords.latitude,
@@ -54,7 +52,7 @@
           // Browser doesn't support Geolocation
           handleLocationError(false, infoWindow, map.getCenter());
         }
-      }*/
+      }
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
@@ -63,8 +61,6 @@
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
       }
-
-      
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvXNPhgD_1RuKv4YMGz4TuJY0Do1JLUtI&callback=initMap">

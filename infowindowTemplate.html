@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Info Windows</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+      function initMap() {
+        var NYplace = {lat: 40.7128, lng: -73.4392696};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 13,
+          center: NYplace
+        });
+
+        var names = ['name1', 'name2', 'name3']
+        var locations = [{lat: 40.7128, lng: -73.4392696}, {lat: 41.7128, lng: -73.4392696}, {lat: 42.7128, lng: -73.4392696}]
+        var information=['info1', 'info2', 'info3']
+        for(i = 0; i<names.length();i++){
+        var contentString = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">names[i]</h1>'+
+            '<div id="bodyContent">'+
+            '<p> information[i] </p>'+
+            '</div>'+
+            '</div>';
+
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+
+        var marker = new google.maps.Marker({
+          position: locations[i],
+          map: msap,
+          title: names[i]
+        });
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });}
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvXNPhgD_1RuKv4YMGz4TuJY0Do1JLUtI&callback=initMap">
+    </script>
+  </body>
+</html>
