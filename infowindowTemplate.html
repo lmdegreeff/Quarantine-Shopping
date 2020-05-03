@@ -32,13 +32,13 @@
         var names = ['name1', 'name2', 'name3']
         var locations = [{lat: 40.7128, lng: -73.4392696}, {lat: 41.7128, lng: -73.4392696}, {lat: 42.7128, lng: -73.4392696}]
         var information=['info1', 'info2', 'info3']
-        for(i = 0; i<names.length();i++){
+        for(i = 0; i<3;i++){
         var contentString = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">names[i]</h1>'+
+            '<h1 id="firstHeading" class="firstHeading">'+names[i]+'</h1>'+
             '<div id="bodyContent">'+
-            '<p> information[i] </p>'+
+            '<p>' + information[i] + '</p>'+
             '</div>'+
             '</div>';
 
@@ -48,7 +48,7 @@
 
         var marker = new google.maps.Marker({
           position: locations[i],
-          map: msap,
+          map: map,
           title: names[i]
         });
         marker.addListener('click', function() {
