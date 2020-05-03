@@ -23,22 +23,23 @@
     <script>
 
       function initMap() {
-        var NYplace = {lat: 40.7128, lng: -73.4392696};
+        var place = {lat: 37.492793, lng: -91.864057};
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 13,
-          center: NYplace
+          zoom: 8,
+          center: place
         });
 
-        var names = ['name1', 'name2', 'name3']
-        var locations = [{lat: 40.7128, lng: -73.4392696}, {lat: 41.7128, lng: -73.4392696}, {lat: 42.7128, lng: -73.4392696}]
-        var information=['info1', 'info2', 'info3']
-        for(i = 0; i<3;i++){
+        var names = ["Salvation Army-O'Fallon", 'Heart Of The Hills Food Harvest', 'Lean On Me Pantry', 'Victory Christian Fellowship Fp', 'Loving Hearts Outreach', 'Grace United Church', 'T.E.A.M.  (The Emer. Assistance Ministry)', 'United Community Help Center', 'West Central Mo - St. Clair County  (Caa)', 'House Of Hope']
+        var locations =[{lat: 38.799644, lng: -90.690065}, {lat: 36.959327, lng: -92.661623}, {lat: 36.626091, lng: -90.828653}, {lat: 36.66314, lng: -90.62678}, {lat: 38.575706, lng: -91.041036}]// {lat: 39.102994, lng: -94.544235}, {lat: 38.79435, lng: -90.331151}, ({lat: 37.492793, lng: -91.864057}, {lat: 38.190543, lng: -94.028049}, {lat: 37.290364, lng: -89.527754}]
+        var information=['636-240-4969 Mon, Thurs & Fri 10:00-12:00; 2nd Wed 5:30-7:30, ', '417-683-6400 Mon & Fri 9:00-2:30', '573-778-9908 2nd & 4th Mon 11:00-2:00', '573-300-1158 Sat 8:00-10:00', '636-390-8300 Mon, Wed, Fri 9:00-2:00, Current People: 16, Capcity: 24', '816-231-5745 Mon-Thurs 10:00-2:00', '314-831-0879 Mon-Fri 10:00-2:00; Sat 10:00-12:00', '573-674-4184 1st Fri of each month 8:00-11:00', '660-476-2185 2nd & 3rd Wed 8:00-4:30', '573-335-4858 3rd Mon 5:30-6:30', '10']
+//var i =0
+        for(i = 0; i<5;i++){
         var contentString = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
             '<h1 id="firstHeading" class="firstHeading">'+names[i]+'</h1>'+
             '<div id="bodyContent">'+
-            '<p>' + information[i] + '</p>'+
+            '<p>'+information[i]+'</p>'+
             '</div>'+
             '</div>';
 
@@ -50,6 +51,7 @@
           position: locations[i],
           map: map,
           title: names[i]
+
         });
         marker.addListener('click', function() {
           infowindow.open(map, marker);
